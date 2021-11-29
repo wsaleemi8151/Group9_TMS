@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Filename:    City.cs
+ * By:          Amritpal Singh, Gursharan Singh, Mustafa, Waqar Ali Saleemi
+ * Date:         November 28, 2021
+ * Description: This file contains the class defination for entity City
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

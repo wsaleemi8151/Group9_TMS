@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Filename:    CustomerManager.cs
+ * Project:     TMS_DataAccessLayer
+ * By:          Amritpal Singh, Gursharan Singh, Mustafa, Waqar Ali Saleemi
+ * Date:         November 28, 2021
+ * Description: This file creates the class and methods needed to deal with customer
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

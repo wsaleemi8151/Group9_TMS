@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * Filename:    UserManager.cs
+ * Project:     TMS_DataAccessLayer
+ * By:          Amritpal Singh, Gursharan Singh, Mustafa, Waqar Ali Saleemi
+ * Date:         November 28, 2021
+ * Description: This file creates the class and methods manages the user
+ */
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Filename:    Customer.cs
+ * By:          Amritpal Singh, Gursharan Singh, Mustafa, Waqar Ali Saleemi
+ * Date:        November 28, 2021
+ * Description: This file contains the class defination for entity Address
+ */
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

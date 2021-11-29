@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Filename:    Contract.cs
+ * By:          Amritpal Singh, Gursharan Singh, Mustafa, Waqar Ali Saleemi
+ * Date:         November 28, 2021
+ * Description: This file contains the class defination for entity Contract
+ */
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
