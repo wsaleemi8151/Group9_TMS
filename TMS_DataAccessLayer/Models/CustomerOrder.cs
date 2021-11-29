@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TMS_DataAccessLayer.Models
 {
     /**
-      * \brief To instantiate Customer entity - given a set of attribute values
+      * \brief To instantiate CustomerOrder entity - given a set of attribute values
       * \details <b>Details</b>
       *
       * \Attributes OrderID - the ID of Order
