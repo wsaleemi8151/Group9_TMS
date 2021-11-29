@@ -6,6 +6,23 @@ using System.Threading.Tasks;
 
 namespace TMS_DataAccessLayer.Models
 {
+    /**
+      * \brief To instantiate Customer entity - given a set of attribute values
+      * \details <b>Details</b>
+      *
+      * \Attributes OrderID - the ID of Order
+      * \Attributes OrderDetails - The deatils of the Order
+      * \Attributes OrderStatusID - The ID of the status of the Order
+      * \Attributes CustomerID - The ID of the customer
+      * \Attributes CarrierID - the ID of Carrier
+      * \Attributes InvoiceID - the ID of the invoice 
+      * \Attributes CreatedBy - The name of Creater
+      * \Attributes CreatedOn - The date on which CustomerOrder was created
+      * \Attributes UpdatedOn - The date on which CustomerOrder was updated
+      * \Attributes UpdatedBy - The name by which CustomerOrder was updated
+      * 
+      *
+      */
     public class CustomerOrder
     {
         public int OrderID { get; set; }

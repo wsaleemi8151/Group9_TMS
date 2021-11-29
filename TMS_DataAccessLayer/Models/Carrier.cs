@@ -6,6 +6,21 @@ using System.Threading.Tasks;
 
 namespace TMS_DataAccessLayer.Models
 {
+
+    /**
+    * \brief To instantiate Carrier entity - given a set of attribute values
+    * \details <b>Details</b>
+    *
+    * \Attributes CarrierID - the ID of Carrier
+    * \Attributes Name - the Name of Carrier
+    * \Attributes VehicleDimensions- The dimensions of the vehicle
+    * \Attributes CreatedBy - The name of Creater
+    * \Attributes CreatedOn - The date on which Carrier was created
+    * \Attributes UpdatedOn - The date on which Carrier was updated
+    * \Attributes UpdatedBy - The name by which Carrier was updated
+    * 
+    *
+    */
     public class Carrier
     {
         public int CarrierID { get; set; }
