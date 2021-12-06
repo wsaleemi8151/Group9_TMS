@@ -4,28 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMS_DataAccessLayer.Models;
+using TMS_DataAccessLayer.MySQL_Connector;
 using TMS_DataAccessLayer.ViewModel;
 
 namespace TMS_DataAccessLayer.Managers
 {
     public class UserManager
     {
+        DataManager dataManager = new DataManager();
         public User Login(string userName, string password)
         {
-            // if success returns user object
-            return new User();
+            return dataManager.SelectOne(new User(), "User", " WHERE UserName=@UserName and Password=@Password");
         }
 
         public User ChangePassword(string userName, string password, string newPassword)
         {
-            // if success returns user object
-            return new User();
+            User user = new User();
+            user.UserName = userName;
+            user.Password = password;
+
+            user = dataManager.SelectOne(user, "User", " WHERE UserName=@UserName and Password=@Password");
+            user.Password = newPassword;
+            return dataManager.UpdateEntity(user, "User", true);
         }
 
         public User UpdateProfile(User user)
         {
-            // if success returns user object
-            return new User();
+            return dataManager.UpdateEntity(user, "User", true);
         }
 
         #region AdminUser
@@ -44,26 +49,22 @@ namespace TMS_DataAccessLayer.Managers
 
         public List<Log> ReviewLogs()
         {
-            // if success returns list of logs
-            return new List<Log>();
+            return dataManager.SelectMany(new Log(), "Log");
         }
 
         public bool UpdateFee(Fee fee)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(fee, "Fee", true) != null;
         }
 
         public bool UpdateCarrier(Carrier carrier)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(carrier, "Carrier", true) != null;
         }
 
         public bool UpdateRoute(Route route)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(route, "Route", true) != null;
         }
 
         public bool DB_Backup()
@@ -80,26 +81,23 @@ namespace TMS_DataAccessLayer.Managers
 
         public bool ReceiveContract(Contract contract)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(contract, "Contract", true) != null;
         }
 
         public bool UpdateCustomer(Customer customer)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(customer, "Customer", true) != null;
         }
 
         public bool UpdateOrder(CustomerOrder order)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
         }
 
         public bool SetOrderCarrier(CustomerOrder order, Carrier carrier)
         {
-            // if success returns true
-            return true;
+            order.CarrierID = carrier.CarrierID;
+            return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
         }
 
         public Invoice GenerateOrderInvoice(CustomerOrder order)
@@ -115,32 +113,29 @@ namespace TMS_DataAccessLayer.Managers
 
         public bool ReviewOrder(CustomerOrder order)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
         }
 
         public List<OrderTrip> CreateOrderTrips(CustomerOrder order)
         {
-            // if success returns List of trips for the order
+            //return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
             return new List<OrderTrip>();
         }
 
         public bool OrderEstimation(CustomerOrder order)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
         }
 
         public OrderStatus ReviewOrderStatus(CustomerOrder order)
         {
-            // if success returns OrderStatus
+            //return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
             return new OrderStatus();
         }
 
         public bool MonitorOrderProgress(CustomerOrder order)
         {
-            // if success returns true
-            return true;
+            return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
         }
 
         public OrderReportModel GenerateReport()

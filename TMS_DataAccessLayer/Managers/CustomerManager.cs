@@ -4,27 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMS_DataAccessLayer.Models;
+using TMS_DataAccessLayer.MySQL_Connector;
 
 namespace TMS_DataAccessLayer.Managers
 {
     public class CustomerManager
     {
+        DataManager dataManager = new DataManager();
         public Customer SignUp(Customer customer)
         {
-            // if success returns customer object
-            return new Customer();
+            return dataManager.UpdateEntity(customer, "Customer", false);
         }
 
         public Contract CreateNewContract(Contract contract)
         {
-            // if success returns contract object
-            return new Contract();
+            return dataManager.UpdateEntity(contract, "Contract", false);
         }
 
         public CustomerOrder CreateNewOrder(CustomerOrder order)
         {
-            // if success returns contract object
-            return new CustomerOrder();
+            return dataManager.UpdateEntity(order, "CustomerOrder", false);
         }
 
     }

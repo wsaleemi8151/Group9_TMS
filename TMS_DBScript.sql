@@ -4,13 +4,13 @@ USE TMS_DB;
 
 
 CREATE TABLE Country (
-    CountryID INT NOT NULL,
+    CountryID INT NOT NULL AUTO_INCREMENT,
     Country VARCHAR(50) NOT NULL,
     PRIMARY KEY (CountryID)
 );
 
 CREATE TABLE State (
-    StateID INT NOT NULL,
+    StateID INT NOT NULL AUTO_INCREMENT,
     State VARCHAR(50) NOT NULL,
     CountryID INT NOT NULL,
     PRIMARY KEY (StateID),
@@ -20,7 +20,7 @@ CREATE TABLE State (
 
 
 CREATE TABLE City (
-    CityID INT NOT NULL,
+    CityID INT NOT NULL AUTO_INCREMENT,
     City VARCHAR(50) NOT NULL,
     StateID INT NOT NULL,
     PRIMARY KEY (CityID),
@@ -29,7 +29,7 @@ CREATE TABLE City (
 );
 
 CREATE TABLE Address (
-    AddressID INT NOT NULL,
+    AddressID INT NOT NULL AUTO_INCREMENT,
     StreetAddress VARCHAR(150) NOT NULL,
     CityID INT NOT NULL,
     PRIMARY KEY (AddressID),
@@ -38,14 +38,14 @@ CREATE TABLE Address (
 );
 
 CREATE TABLE Role (
-    RoleID INT NOT NULL,
+    RoleID INT NOT NULL AUTO_INCREMENT,
     Role VARCHAR(50) NOT NULL,
     Description VARCHAR(200) NOT NULL,
     PRIMARY KEY (RoleID)
 );
 
 CREATE TABLE User (
-    UserID INT NOT NULL,
+    UserID INT NOT NULL AUTO_INCREMENT,
     UserName VARCHAR(50) NOT NULL,
     Password VARCHAR(50) NOT NULL,
     FirstName VARCHAR(50) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE User (
 
 
 CREATE TABLE Carrier (
-    CarrierID INT NOT NULL,
+    CarrierID INT NOT NULL AUTO_INCREMENT,
     Name VARCHAR(50) NOT NULL,
     VehicleDimensions VARCHAR(100) NOT NULL,
     CreatedBy INT NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE Carrier (
 
 
 CREATE TABLE Customer (
-    CustomerID INT NOT NULL,
+    CustomerID INT NOT NULL AUTO_INCREMENT,
     Name VARCHAR(50) NOT NULL,
     CompanyName VARCHAR(200) NULL,
     CreatedBy INT NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE Customer (
 
 
 CREATE TABLE Contract (
-    ContractID INT NOT NULL,
+    ContractID INT NOT NULL AUTO_INCREMENT,
     ContractDetails VARCHAR(200) NOT NULL,
     CustomerID INT NOT NULL,
     CreatedBy INT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE Contract (
 
 
 CREATE TABLE Fee (
-    FeeID INT NOT NULL,
+    FeeID INT NOT NULL AUTO_INCREMENT,
     Description VARCHAR(200) NOT NULL,
     Fee DECIMAL(18 , 0 ) NOT NULL,
     CreatedBy INT NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE Fee (
 
 
 CREATE TABLE Invoice (
-    InvoiceID INT NOT NULL,
+    InvoiceID INT NOT NULL AUTO_INCREMENT,
     FeeID INT NOT NULL,
     PaymentStatus VARCHAR(50) NOT NULL,
     CreatedBy INT NOT NULL,
@@ -147,7 +147,7 @@ CREATE TABLE Invoice (
 );
 
 CREATE TABLE Log (
-    LogID INT NOT NULL,
+    LogID INT NOT NULL AUTO_INCREMENT,
     FileName VARCHAR(150) NOT NULL,
     CreatedOn DATETIME NOT NULL,
     PRIMARY KEY (LogID)
@@ -155,14 +155,14 @@ CREATE TABLE Log (
 
 
 CREATE TABLE OrderStatus (
-    OrderStatusID INT NOT NULL,
+    OrderStatusID INT NOT NULL AUTO_INCREMENT,
     Status VARCHAR(50) NOT NULL,
     PRIMARY KEY (OrderStatusID)
 );
 
 
 CREATE TABLE CustomerOrder (
-    OrderID INT NOT NULL,
+    OrderID INT NOT NULL AUTO_INCREMENT,
     OrderDetails VARCHAR(200) NOT NULL,
     OrderStatusID INT NOT NULL,
     CustomerID INT NOT NULL,
@@ -189,7 +189,7 @@ CREATE TABLE CustomerOrder (
 
 
 CREATE TABLE OrderTrip (
-    TripID INT NOT NULL,
+    TripID INT NOT NULL AUTO_INCREMENT,
     OrderID INT NOT NULL,
     CarrierID INT NOT NULL,
     PRIMARY KEY (TripID),
@@ -201,7 +201,7 @@ CREATE TABLE OrderTrip (
 
 
 CREATE TABLE Route (
-    RouteID INT NOT NULL,
+    RouteID INT NOT NULL AUTO_INCREMENT,
     Description VARCHAR(200) NOT NULL,
     SourceAddressID INT NOT NULL,
     DestinationAddressID INT NOT NULL,
