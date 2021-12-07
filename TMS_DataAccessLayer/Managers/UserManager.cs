@@ -56,6 +56,11 @@ namespace TMS_DataAccessLayer.Managers
             return dataManager.SelectMany(new Log(), "Log");
         }
 
+        public List<Fee> GetFees()
+        {
+            return dataManager.SelectMany(new Fee(), "Fee");
+        }
+
         public bool UpdateFee(Fee fee)
         {
             return dataManager.UpdateEntity(fee, "Fee", true) != null;
@@ -69,6 +74,11 @@ namespace TMS_DataAccessLayer.Managers
         public bool UpdateRoute(Route route)
         {
             return dataManager.UpdateEntity(route, "Route", true) != null;
+        }
+
+        public List<Route> GetRoutes()
+        {
+            return dataManager.SelectMany(new Route(), "Route");
         }
 
         public bool DB_Backup()
@@ -93,6 +103,11 @@ namespace TMS_DataAccessLayer.Managers
             return dataManager.UpdateEntity(customer, "Customer", true) != null;
         }
 
+        public List<Customer> GetCustomers()
+        {
+            return dataManager.SelectMany(new Customer(), "Customer");
+        }
+
         public bool UpdateOrder(CustomerOrder order)
         {
             return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
@@ -102,6 +117,11 @@ namespace TMS_DataAccessLayer.Managers
         {
             order.CarrierID = carrier.CarrierID;
             return dataManager.UpdateEntity(order, "CustomerOrder", true) != null;
+        }
+
+        public List<Carrier> GetCarrier()
+        {
+            return dataManager.SelectMany(new Carrier(), "Carrier");
         }
 
         public Invoice GenerateOrderInvoice(CustomerOrder order)
@@ -114,6 +134,11 @@ namespace TMS_DataAccessLayer.Managers
 
 
         #region PlannerUser
+
+        public List<CustomerOrder> GetOrders()
+        {
+            return dataManager.SelectMany(new CustomerOrder(), "CustomerOrder");
+        }
 
         public bool ReviewOrder(CustomerOrder order)
         {

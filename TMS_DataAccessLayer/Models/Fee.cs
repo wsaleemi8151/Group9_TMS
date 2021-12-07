@@ -10,7 +10,7 @@ namespace TMS_DataAccessLayer.Models
     {
         public int FeeID { get; set; }
         public string Description { get; set; }
-        public double Fees { get; set; }
+        public decimal Fees { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public int UpdatedBy { get; set; }

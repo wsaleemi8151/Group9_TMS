@@ -10,28 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TMS_DataAccessLayer.Managers;
 
 namespace Group9_TMS
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for frmLogs.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class frmOrder : Window
     {
-        public MainWindow()
+        public frmOrder()
         {
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void frmLogs1_Loaded(object sender, RoutedEventArgs e)
         {
-            UserManager userManager = new UserManager();
-            var user = userManager.Login("Test", "test");
-            //var logs = userManager.ReviewLogs();
-            
+            UserManager manager = new UserManager();
+            var orders = manager.GetOrders();
+
+            foreach (var order in orders)
+            {
+                Logs_input.Text += order.OrderDetails + "                Created On: " + order.CreatedOn.ToString() + Environment.NewLine;
+            }
         }
     }
 }
