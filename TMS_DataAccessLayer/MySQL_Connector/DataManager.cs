@@ -84,7 +84,7 @@ namespace TMS_DataAccessLayer.MySQL_Connector
 
         public T SelectOne<T>(T entity, string entityName, string whereClause = "")
         {
-            DataTable dt = SelectEntity(entityName, whereClause);
+            DataTable dt = SelectEntity(entity, entityName, whereClause);
 
             if (dt.Rows.Count > 0)
             {
@@ -111,7 +111,7 @@ namespace TMS_DataAccessLayer.MySQL_Connector
             var type = entity.GetType();
             List<T> list = new List<T>();
 
-            var dt = this.SelectEntity(entityName, whereClause);
+            var dt = this.SelectEntity(entity, entityName, whereClause);
             foreach (DataRow row in dt.Rows.Cast<DataRow>())
             {
                 string[] columnNames = dt.Columns.Cast<DataColumn>()
@@ -140,14 +140,24 @@ namespace TMS_DataAccessLayer.MySQL_Connector
         * T entity         -         entity to update 
         *
         */
-        private DataTable SelectEntity(string entityName, string whereClause = "")
+        private DataTable SelectEntity<T>(T entity, string entityName, string whereClause = "")
         {
             DataTable dt = new DataTable(entityName);
+            var properties = entity.GetType().GetProperties();
 
             if (this.OpenConnection())
             {
                 string query = $"SELECT * FROM {entityName} {whereClause}";
-                MySqlDataAdapter returnVal = new MySqlDataAdapter(query, connection);
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                foreach (PropertyInfo prop in properties)
+                {
+                    cmd.Parameters.AddWithValue($"@{prop.Name}", prop.GetValue(entity, null));
+                }
+
+
+                MySqlDataAdapter returnVal = new MySqlDataAdapter(cmd);
                 returnVal.Fill(dt);
 
                 //close connection

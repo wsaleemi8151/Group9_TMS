@@ -14,7 +14,11 @@ namespace TMS_DataAccessLayer.Managers
         DataManager dataManager = new DataManager();
         public User Login(string userName, string password)
         {
-            return dataManager.SelectOne(new User(), "User", " WHERE UserName=@UserName and Password=@Password");
+            User user = new User();
+            user.UserName = userName;
+            user.Password = password;
+
+            return dataManager.SelectOne(user, "User", " WHERE UserName=@UserName and Password=@Password");
         }
 
         public User ChangePassword(string userName, string password, string newPassword)
